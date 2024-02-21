@@ -1,6 +1,6 @@
 # MultiPDF Chat App
 
-> Tutotiel vidéo du projet initial : [YouTube](https://youtu.be/dXxQ0LR-3Hg).
+> Tutoriel vidéo du projet initial : [YouTube](https://youtu.be/dXxQ0LR-3Hg).
 
 ## Introduction
 ------------
