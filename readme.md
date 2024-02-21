@@ -6,60 +6,66 @@
 ------------
 The MultiPDF Chat App is a Python application that allows you to chat with multiple PDF documents. You can ask questions about the PDFs using natural language, and the application will provide relevant responses based on the content of the documents. This app utilizes a language model to generate accurate answers to your queries. Please note that the app will only respond to questions related to the loaded PDFs.
 
-## How It Works
+
+
+L'application de MultiPDF Chat est une application Python qui vous permet de discuter avec plusieurs documents PDF. Vous pouvez poser des questions sur les PDF en langage naturel, et l'application fournira des réponses pertinentes en s'appuyant sur le contenu des documents. Cette application utilise un modèle de langage pour générer des réponses précises à vos questions. Veuillez noter que l'application ne répondra qu'aux questions relatives aux PDF chargés.
+
+## Comment cela fonctionne
 ------------
 
 ![MultiPDF Chat App Diagram](./docs/PDF-LangChain.jpg)
 
-The application follows these steps to provide responses to your questions:
+L'application suit ces étapes pour répondre à vos questions:
 
-1. PDF Loading: The app reads multiple PDF documents and extracts their text content.
+1. Chargement du PDF : L'application charge plusieurs documents PDF et extrait leur contenu textuel.
 
-2. Text Chunking: The extracted text is divided into smaller chunks that can be processed effectively.
+2. Découpage du texte: Le texte extrait est divisé en petits morceaux qui peuvent être traités efficacement.
+   
+4. Modèle de langage: L'application utilise un modèle de langage pour générer des représentations vectorielles (embeddings/plongement) des fragments de texte.
+   
+6. Correspondance par similitude: Lorsque vous posez une question, l'application la compare avec les fragments de texte et identifie les extraits les plus proches du point de vue sémantique.
 
-3. Language Model: The application utilizes a language model to generate vector representations (embeddings) of the text chunks.
+7. Génération de réponse: Les fragments sélectionnés sont transmis au modèle de langage, qui génère une réponse basée sur le contenu pertinent des PDF.
 
-4. Similarity Matching: When you ask a question, the app compares it with the text chunks and identifies the most semantically similar ones.
-
-5. Response Generation: The selected chunks are passed to the language model, which generates a response based on the relevant content of the PDFs.
-
-## Dependencies and Installation
+## Dépendances et installation
 ----------------------------
-To install the MultiPDF Chat App, please follow these steps:
+Pour installer l'application MultiPDF Chat, veuillez suivre les étapes suivantes:
 
-1. Clone the repository to your local machine.
-
-2. Install the required dependencies by running the following command:
+1. Clonez le dépôt de votre machine locale.
+   
+2. Installez les dépendances requises en exécutant la commande suivante:
+   
    ```
    pip install -r requirements.txt
    ```
+3. (Facultatif) Obtenez une clé d'API à partir d'OpenAI et l'ajouter au fichier `.env` dans le répertoire du projet.
 
-3. Obtain an API key from OpenAI and add it to the `.env` file in the project directory.
 ```commandline
 OPENAI_API_KEY=your_secrit_api_key
 ```
 
-## Usage
------
-To use the MultiPDF Chat App, follow these steps:
+## Utilisation
 
-1. Ensure that you have installed the required dependencies and added the OpenAI API key to the `.env` file.
+Pour utiliser l'application MultiPDF Chat, suivez les étapes suivantes:
 
-2. Run the `main.py` file using the Streamlit CLI. Execute the following command:
+1. Assurez-vous d'avoir installé les dépendances requises (facultatif: et ajouter la clé d'API OpenAI au fichier `.env`).
+
+2. Exécutez le main.pyfichier utilisant le Streamlit CLI. Exécutzr la commande suivante:
+
    ```
    streamlit run app.py
    ```
 
-3. The application will launch in your default web browser, displaying the user interface.
+3. L'application sera lancée dans votre navigateur web par défaut, affichant l'interface utilisateur.
 
-4. Load multiple PDF documents into the app by following the provided instructions.
+4. Chargez plusieurs documents PDF dans l'application en suivant les instructions fournies.
 
-5. Ask questions in natural language about the loaded PDFs using the chat interface.
+5. Posez des questions en langage naturel sur les PDF chargés à l'aide de l'interface de chat.
 
-## Contributing
-------------
-This repository is intended for educational purposes and does not accept further contributions. It serves as supporting material for a YouTube tutorial that demonstrates how to build this project. Feel free to utilize and enhance the app based on your own requirements.
+## Contribution
 
-## License
--------
-The MultiPDF Chat App is released under the [MIT License](https://opensource.org/licenses/MIT).
+Ce répertoire est destiné à des fins éducatives et n'accepte pas d'autres contributions. Il sert de support pour un tutoriel YouTube qui montre comment construire ce projet. N'hésitez pas à utiliser et à améliorer l'application en fonction de vos propres besoins.
+
+## Licence
+
+L'application de Chat MultiPDF est publiée sous [MIT License](https://opensource.org/licenses/MIT).
