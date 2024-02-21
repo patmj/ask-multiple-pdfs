@@ -3,6 +3,10 @@ from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
+# from langchain_community.embeddings import FastEmbedEmbeddings
+# from langchain_community.vectorstores import Chroma
+# from langchain_community.chat_models import ChatOllama
+# from langchain_community.document_loaders import PyPDFLoader
 from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
