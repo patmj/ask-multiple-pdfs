@@ -1,18 +1,18 @@
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
-# from langchain_community.document_loaders import PyPDFLoader
+#from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.embeddings import FastEmbedEmbeddings
 # from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
 from langchain_community.chat_models import ChatOllama
 # from langchain.chat_models import ChatOpenAI
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 # from langchain_community.vectorstores import Chroma
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
-from langchain.llms import HuggingFaceHub
+from langchain_community.llms import HuggingFaceHub
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -43,7 +43,7 @@ def get_vectorstore(text_chunks):
 
 
 def get_conversation_chain(vectorstore):
-    llm = ChatOllama
+    llm = ChatOllama(model="mistral")
     # llm = ChatOpenAI()
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":512})
 
@@ -71,7 +71,7 @@ def handle_userinput(user_question):
 
 
 def main():
-    load_dotenv()
+    #load_dotenv()
     st.set_page_config(page_title="Chat with multiple PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
